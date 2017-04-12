@@ -10,8 +10,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 
 import com.shikhar.marvelpedia.Activity.Adapter.SimpleFragmentPagerAdapter;
-import com.shikhar.marvelpedia.BuildConfig;
 import com.shikhar.marvelpedia.R;
+import butterknife.ButterKnife;
 
 //TODO
 // no net(nodataornet vala hee)
@@ -27,12 +27,11 @@ import com.shikhar.marvelpedia.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static String API_KEY = BuildConfig.API_KEY;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
         //attach adapter to viewpager
         final ViewPager viewPager = (ViewPager) findViewById(R.id.tab_viewpager);

@@ -13,7 +13,8 @@ android {
     }
     buildTypes {
         applicationVariants.all { variant ->
-            variant.buildConfigField "String", "API_KEY", "\"" + getApiKey() + "\""
+            variant.buildConfigField "String", "PRIVATE_API_KEY", "\"" + getPrivateApiKey() + "\""
+            variant.buildConfigField "String", "PUBLIC_API_KEY", "\"" + getPublicApiKey() + "\""
         }
         release {
             minifyEnabled false
@@ -22,10 +23,16 @@ android {
     }
 }
 
-def getApiKey() {
+def getPrivateApiKey() {
     def Properties props = new Properties()
     props.load(new FileInputStream(new File('local.properties')))
-    return props['API_KEY']
+    return props['PRIVATE_API_KEY']
+}
+
+def getPublicApiKey() {
+    def Properties props = new Properties()
+    props.load(new FileInputStream(new File('local.properties')))
+    return props['PUBLIC_API_KEY']
 }
 
 
