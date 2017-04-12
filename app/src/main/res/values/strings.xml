@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MarvelPedia</string>
+    <string name="category_characters">CHARACTERS</string>
+    <string name="category_comics">COMICS</string>
 </resources>

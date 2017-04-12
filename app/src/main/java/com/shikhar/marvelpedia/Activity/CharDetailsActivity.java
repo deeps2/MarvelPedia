@@ -2,7 +2,6 @@ package com.shikhar.marvelpedia.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import com.shikhar.marvelpedia.R;
 
 public class CharDetailsActivity extends AppCompatActivity {
