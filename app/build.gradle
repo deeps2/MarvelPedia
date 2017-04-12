@@ -10,20 +10,24 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        //To build this project, you will need to apply for your own api key.
-        // When you receive your API, add the following attribute to your gradle.properties file in the following form
-        // API_KEY = "your api key goes here"
-
-        buildConfigField("String","API_KEY",API_KEY)
     }
     buildTypes {
+        applicationVariants.all { variant ->
+            variant.buildConfigField "String", "API_KEY", "\"" + getApiKey() + "\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
+
+def getApiKey(){
+    def Properties props = new Properties()
+    props.load(new FileInputStream(new File('local.properties')))
+    return props['API_KEY']
+}
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
