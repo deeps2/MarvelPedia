@@ -15,7 +15,7 @@ android {
         // When you receive your API, add the following attribute to your gradle.properties file in the following form
         // API_KEY = "your api key goes here"
 
-        buildConfigField("String", "API_KEY", API_KEY)
+        buildConfigField("String","API_KEY",API_KEY)
     }
     buildTypes {
         release {

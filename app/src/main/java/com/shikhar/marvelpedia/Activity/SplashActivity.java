@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        tv = (TextView)findViewById(R.id.text);
+        tv = (TextView)findViewById(R.id.key);
         tv.setText(API_KEY);
     }
 }
