@@ -1,5 +1,13 @@
 # MarvelPedia <img src="app/src/main/res/mipmap-hdpi/ic_launcher.png" />
-Comics Browsing App (WedMeGood Assignment)
+Comics Browsing App (WedMeGood Assignment)</br>
+
+
+<b>NOTE: If you get any error toast while loading the comics app. Close the app and open it again. Sometimes Request gets TimeOut</b>
+
+<b> NOTE: Please add your private and public keys to local.properties gradle file as </b></br>
+<b>PRIVATE_KEY={your_key}</b></br>
+<b>PUBLIC_KEY={your_key}</b></br>
+<b>without curly braces {} and without any double quotes "". Don't add trailing space after your key also </b></br></br>
 
 Video Demo
 ----------
@@ -47,6 +55,8 @@ https://drive.google.com/open?id=0B2nGf8LzrZuJQ290bHFoUFh3cDQ
 - ButterKnife (to avoid findViewById() calls)
 - DesignLibrary (for material design)
 - Glide (for loading images from a given url)
+
+<b> Looking forward to your reply. Hope you will like it :-) </b>
 
 My Repos
 ---------
