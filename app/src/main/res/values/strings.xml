@@ -3,4 +3,11 @@
     <string name="category_characters">CHARACTERS</string>
     <string name="category_comics">COMICS</string>
     <string name="spider_man_description">My favourite marvel hero is Spider Man. He was the first hero from the marvel universe whome I became familiar with after watching cartoons during my childhood days. I always dreamed of having powers, flexibility and spider sense like him. Moreover, he is intelligent also like Tony Stark. The love for character grows even more deeper after playing several PC games and watching the first movie trilogy(2002) on Spider Man.</string>
+    <string name="description">Details Activity is implemented for Comics category but I didn\'t get enough time to fully implement it for Characters.
+        \n\nActually Marvel Character API is just returning me the character name and image. There is no way by which API can return information related to
+        character such as his/her real name, superpowers, height of character etc...(as these are not provided by the API side).
+        \n\nInstead it is returning the endpoints which you can call to get the list of events,series,comics (list type)
+        where this character has appeared.\n\nAgain if I call those endpoints then they will return only 2,3 information and some other
+        endpoints. \n\nI have figured out the way and logic for how to fetch necessary details related to character information but it\'s not that much
+        straightforward like comics details. If you want me to implement CharacterDetailsActivity, then WatsApp me at 08897013127. I can do it. I just need some more time. \n\nFinally, Thanks for giving me an opportunity to work on this task :-) .Waiting for your reply.....</string>
 </resources>

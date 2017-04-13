@@ -1,6 +1,7 @@
 package com.shikhar.marvelpedia.Activity.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.shikhar.marvelpedia.Activity.CharsDetailsActivity;
+import com.shikhar.marvelpedia.Activity.ComicsDetailsActivity;
 import com.shikhar.marvelpedia.Activity.ModelChars.Result;
 import com.shikhar.marvelpedia.R;
 import java.util.List;
@@ -41,9 +44,13 @@ public class CharsAdapter extends RecyclerView.Adapter<CharsAdapter.ViewHolder> 
         //when a card gets clicked in the recycler view
         @Override
         public void onClick(View v) {
-            int position = getAdapterPosition();
-       //     Toast.makeText(context,"Chars: " + position,Toast.LENGTH_SHORT).show();
 
+            int position = getAdapterPosition();
+
+            Result charsDetails = listOfCharacters.get(position);
+            Intent mainIntent = new Intent(context, CharsDetailsActivity.class);
+            mainIntent.putExtra("CLICKED_CHAR", charsDetails);
+            context.startActivity(mainIntent);
         }
     }
 

@@ -4,7 +4,9 @@ package com.shikhar.marvelpedia.Activity.ModelChars;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Item__ {
+import java.io.Serializable;
+
+public class Item__ implements Serializable {
 
     @SerializedName("resourceURI")
     @Expose

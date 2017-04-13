@@ -4,7 +4,9 @@ package com.shikhar.marvelpedia.Activity.ModelComics;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Variant {
+import java.io.Serializable;
+
+public class Variant implements Serializable {
 
     @SerializedName("resourceURI")
     @Expose

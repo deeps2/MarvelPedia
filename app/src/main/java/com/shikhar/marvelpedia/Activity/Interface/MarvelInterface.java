@@ -13,19 +13,21 @@ public interface MarvelInterface {
 
     //get all characters, order by name, max limit is 100
     // https://gateway.marvel.com:443/v1/public/characters?orderBy=name&limit=100&ts=<timeStamp>&apikey=<key>&hash=<hash>
-    @GET("characters?orderBy=name&limit=10")//max limit is 100
+    @GET("characters?orderBy=name&limit=100")//max limit is 100
     Call<CharsResponse> getAllCharacters(@Query("ts") String timeStamp, @Query("apikey") String API_KEY, @Query("hash") String hash);
 
 
-     //search characters, order by name, max limit is 100
+    //search characters, order by name, max limit is 100
     // https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=<search>&orderBy=name&limit=100&ts=<timeStamp>&apikey=<key>&hash=<hash>
     @GET("characters?orderBy=name&limit=100")//max limit is 100
     Call<CharsResponse> searchCharacters(@Query("nameStartsWith") String search, @Query("ts") String timeStamp, @Query("apikey") String API_KEY, @Query("hash") String hash);
 
-     //get all comics, formatType = Comic, noVariants = Trues, order by Title(Comic's Name), max Limit = 100
+
+    //get all comics, formatType = Comic, noVariants = Trues, order by Title(Comic's Name), max Limit = 100
     // https://gateway.marvel.com:443/v1/public/comics?orderBy=name&limit=100&ts=<timeStamp>&apikey=<key>&hash=<hash>
-    @GET("comics?formatType=comic&noVariants=true&orderBy=title&limit=10")//max limit is 100
+    @GET("comics?formatType=comic&noVariants=true&orderBy=title&limit=25")
     Call<ComicsResponse> getAllComics(@Query("ts") String timeStamp, @Query("apikey") String API_KEY, @Query("hash") String hash);
+
 
     //search comics, formatType =  Comic, noVariants = Trues, order by Title(Comic's Name), max Limit = 100 and titleStartsWith = <title>
     // https://gateway.marvel.com:443/v1/public/comics?orderBy=name&limit=100&ts=<timeStamp>&apikey=<key>&hash=<hash>

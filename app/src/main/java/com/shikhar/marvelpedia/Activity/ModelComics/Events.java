@@ -1,11 +1,12 @@
 
 package com.shikhar.marvelpedia.Activity.ModelComics;
 
+import java.io.Serializable;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Events {
+public class Events implements Serializable {
 
     @SerializedName("available")
     @Expose
