@@ -2,7 +2,7 @@
 Comics Browsing App (WedMeGood Assignment)</br>
 
 
-<b>NOTE: If you get any error toast while loading the comics app. Close the app and open it again. Sometimes Request gets TimeOut</b>
+<b>NOTE: If you get any error toast while loading the comics tab. Close the app and open it again. Sometimes Request gets TimeOut</b>
 
 <b> NOTE: Please add your private and public keys to local.properties gradle file as </b></br>
 <b>PRIVATE_KEY={your_key}</b></br>
@@ -33,10 +33,10 @@ https://drive.google.com/open?id=0B2nGf8LzrZuJQ290bHFoUFh3cDQ
 - Search any Character or Comics by entering the starting letters (ex: sp for spider man, av for avengers, iro for iron man)
 - Get details of any Comics and Character by clicking on its card.
 
-# ExtraPoints(according to problem given)
-- A search for characters and comics --> IMPLEMENTED. Click on Fab search icon to search for characters/comics
-- Animations and transitions --> IMPLEMENTED. Can be seen in SplashActivity, top cover image in MainActivity
-- Telling us your favorite marvel hero. And why? (This is very important) --> IMPLEMENTED. Click on Heart image in app(inside MainActivity) to know more
+# ExtraPoints (According to problem given)
+- A search for characters and comics --> <b>IMPLEMENTED. Click on Fab search icon to search for characters/comics</b>
+- Animations and transitions --> <b>IMPLEMENTED. Can be seen in SplashActivity, top cover image in MainActivity</b>
+- Telling us your favorite marvel hero. And why? (This is very important) --> <b>IMPLEMENTED. Click on Heart image in app(inside MainActivity) to know more</b>
 
 # Components Used
 - GridLayout
