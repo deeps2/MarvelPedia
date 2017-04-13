@@ -17,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.shikhar.marvelpedia.Activity.SearchActivity;
@@ -49,6 +50,8 @@ public class CharsFragment extends Fragment {
     ProgressBar progressBar;
     @BindView(R.id.fab)
     FloatingActionButton fab;
+    @BindView(R.id.empty_result)
+    TextView emptyText;
 
     private static String PRIVATE_API_KEY = BuildConfig.PRIVATE_API_KEY;
     private static String PUBLIC_API_KEY = BuildConfig.PUBLIC_API_KEY;
@@ -64,6 +67,7 @@ public class CharsFragment extends Fragment {
         Bundle bundle = getArguments();
         if(bundle != null) {
             search = bundle.getString("Search");
+            getActivity().setTitle("Search->Characters->" + "\"" + search + "\"");
         }
 
         View view = inflater.inflate(R.layout.fragment_layout, container, false);
@@ -114,9 +118,9 @@ public class CharsFragment extends Fragment {
 
         Call<CharsResponse> call;
 
-        if(search == null)
+        if(search == null) //if search is null, fetch all Characters
             call = serviceRequest.getAllCharacters(timeStampString, PUBLIC_API_KEY, md5ApiKey);
-        else
+        else //if search has a string fetch all characters starting with that string
             call = serviceRequest.searchCharacters(search, timeStampString, PUBLIC_API_KEY, md5ApiKey);
 
         call.enqueue(new Callback<CharsResponse>() {
@@ -126,22 +130,19 @@ public class CharsFragment extends Fragment {
                 int statusCode = response.code();
 
                 if (statusCode != 200) {
-                    //TODO emptyView.setVisibility(View.INVISIBLE);
-                    //TODO progressBar.setVisibility(View.INVISIBLE);
-                    //TODO noData.setVisibility(View.VISIBLE);
                     //TODO noNet.setVisibility(View.INVISIBLE);
                     return;
                 }
 
                 List<Result> listOfChars = response.body().getData().getResults();
 
-                //TODO check if list is 0 then show no data
+                if(listOfChars.size() == 0)
+                    emptyText.setVisibility(View.VISIBLE);
+
                 adapter.setDataAdapter(listOfChars);
                 adapter.notifyDataSetChanged();
 
                 progressBar.setVisibility(View.INVISIBLE);
-                // TODO emptyView.setVisibility(View.INVISIBLE);
-                // TODO noData.setVisibility(View.INVISIBLE);
                 // TODO noNet.setVisibility(View.INVISIBLE);
 
             }
@@ -154,6 +155,7 @@ public class CharsFragment extends Fragment {
 
     }
 
+    //return MD5 String(required to make the call to API)
     public String MD5(String md5) {
         try {
             java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
@@ -164,16 +166,17 @@ public class CharsFragment extends Fragment {
             }
             return sb.toString();
         } catch (java.security.NoSuchAlgorithmException e) {
+            Toast.makeText(getActivity(),e.toString(),Toast.LENGTH_SHORT).show();
         }
         return null;
     }
 
-    //shows a Dailog with Search option
+    //shows a Dialog with Search option
     void showSearchDialog() {
 
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         alertDialog.setTitle("SEARCH CHARACTERS");
-        alertDialog.setMessage("Enter Starting letters of Character(Ex. Spi for Spider-Man)");
+        alertDialog.setMessage("Enter \"JUST few Starting\" letters of Character(Ex. Spi for Spider-Man. DON'T enter full name to get best search results");
         alertDialog.setIcon(R.mipmap.ic_launcher);
 
         final EditText input = new EditText(getActivity());
@@ -201,8 +204,6 @@ public class CharsFragment extends Fragment {
                         }
                     }
                 });
-
-        //alertDialog.show();
 
         AlertDialog dialog = alertDialog.create();
 

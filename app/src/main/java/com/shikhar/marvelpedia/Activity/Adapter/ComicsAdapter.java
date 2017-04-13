@@ -43,7 +43,7 @@ public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder
         public void onClick(View v) {
             int position = getAdapterPosition();
 
-            Toast.makeText(context,"Comics: " + position,Toast.LENGTH_SHORT).show();
+        //    Toast.makeText(context,"Comics: " + position,Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -42,7 +42,7 @@ public class CharsAdapter extends RecyclerView.Adapter<CharsAdapter.ViewHolder> 
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            Toast.makeText(context,"Chars: " + position,Toast.LENGTH_SHORT).show();
+       //     Toast.makeText(context,"Chars: " + position,Toast.LENGTH_SHORT).show();
 
         }
     }

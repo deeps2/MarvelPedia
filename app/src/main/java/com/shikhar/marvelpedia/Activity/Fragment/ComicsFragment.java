@@ -1,6 +1,7 @@
 package com.shikhar.marvelpedia.Activity.Fragment;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -16,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.shikhar.marvelpedia.Activity.Adapter.ComicsAdapter;
@@ -23,6 +25,7 @@ import com.shikhar.marvelpedia.Activity.Interface.MarvelInterface;
 import com.shikhar.marvelpedia.Activity.ModelComics.ComicsResponse;
 
 import com.shikhar.marvelpedia.Activity.ModelComics.Result;
+import com.shikhar.marvelpedia.Activity.SearchActivity;
 import com.shikhar.marvelpedia.BuildConfig;
 import com.shikhar.marvelpedia.R;
 
@@ -47,16 +50,25 @@ public class ComicsFragment extends Fragment {
     ProgressBar progressBar;
     @BindView(R.id.fab)
     FloatingActionButton fab;
+    @BindView(R.id.empty_result)
+    TextView emptyText;
 
     private static String PRIVATE_API_KEY = BuildConfig.PRIVATE_API_KEY;
     private static String PUBLIC_API_KEY = BuildConfig.PUBLIC_API_KEY;
     String url = "https://gateway.marvel.com:443/v1/public/";
+    String search;
 
     List<Result> listOfComics = new ArrayList<>();
     ComicsAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        Bundle bundle = getArguments();
+        if(bundle != null) {
+            search = bundle.getString("Search");
+            getActivity().setTitle("Search->Comics->" + "\"" + search + "\"");
+        }
 
         View view = inflater.inflate(R.layout.fragment_layout, container, false);
         ButterKnife.bind(this, view);
@@ -68,14 +80,19 @@ public class ComicsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setHasFixedSize(true);
 
-        getAllComics();
+        if (search == null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showSearchDialog();
+                }
+            });
+        }
+        else {
+            fab.setVisibility(View.INVISIBLE);
+        }
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showSearchDialog();
-            }
-        });
+        getAllComics();
 
         return view;
     }
@@ -99,7 +116,11 @@ public class ComicsFragment extends Fragment {
         String timeStampString = Long.toString(timeStamp);
         String md5ApiKey = MD5(timeStamp + PRIVATE_API_KEY + PUBLIC_API_KEY);
 
-        Call<ComicsResponse> call = serviceRequest.getAllComics(timeStampString, PUBLIC_API_KEY, md5ApiKey);
+        Call<ComicsResponse> call;
+        if(search == null) //if search is null, fetch all Comics
+            call = serviceRequest.getAllComics(timeStampString, PUBLIC_API_KEY, md5ApiKey);
+        else //if search has a string fetch all Comics starting with that string
+            call = serviceRequest.searchComics(search,timeStampString, PUBLIC_API_KEY, md5ApiKey);
 
         call.enqueue(new Callback<ComicsResponse>() {
             @Override
@@ -108,22 +129,18 @@ public class ComicsFragment extends Fragment {
                 int statusCode = response.code();
 
                 if (statusCode != 200) {
-                    //TODO emptyView.setVisibility(View.INVISIBLE);
-                    //TODO progressBar.setVisibility(View.INVISIBLE);
-                    //TODO noData.setVisibility(View.VISIBLE);
                     //TODO noNet.setVisibility(View.INVISIBLE);
                     return;
                 }
 
                 List<Result> listOfComics = response.body().getData().getResults();
-                //TODO check if list is 0 then show no data
+                if(listOfComics.size() == 0)
+                    emptyText.setVisibility(View.VISIBLE);
 
                 adapter.setDataAdapter(listOfComics);
                 adapter.notifyDataSetChanged();
 
                 progressBar.setVisibility(View.INVISIBLE);
-                // TODO emptyView.setVisibility(View.INVISIBLE);
-                // TODO noData.setVisibility(View.INVISIBLE);
                 // TODO noNet.setVisibility(View.INVISIBLE);
 
             }
@@ -136,6 +153,7 @@ public class ComicsFragment extends Fragment {
 
     }
 
+    //return MD5 String(required to make the call to API)
     public String MD5(String md5) {
         try {
             java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
@@ -146,16 +164,17 @@ public class ComicsFragment extends Fragment {
             }
             return sb.toString();
         } catch (java.security.NoSuchAlgorithmException e) {
+            Toast.makeText(getActivity(),e.toString(),Toast.LENGTH_SHORT).show();
         }
         return null;
     }
 
-    //shows a Dailog with Search option
+    //shows a Dialog with Search option
     void showSearchDialog() {
 
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
         alertDialog.setTitle("SEARCH COMICS");
-        alertDialog.setMessage("Enter Starting letters of comics(Ex. Av for Avengers)");
+        alertDialog.setMessage("Enter  \"JUST few Starting\" letters of comics(Ex. Av for Avengers). DON'T enter full name to get best search results");
         alertDialog.setIcon(R.mipmap.ic_launcher);
 
         final EditText input = new EditText(getActivity());
@@ -175,12 +194,13 @@ public class ComicsFragment extends Fragment {
                         if (search.length() <= 0)
                             dialog.cancel();
                         else {
-                           //TODO search algo
+                            Intent intent = new Intent(getActivity(), SearchActivity.class);
+                            intent.putExtra("Search", search);
+                            intent.putExtra("Fragment", "Comics");
+                            startActivity(intent);
                         }
                     }
                 });
-
-        //alertDialog.show();
 
         AlertDialog dialog = alertDialog.create();
 

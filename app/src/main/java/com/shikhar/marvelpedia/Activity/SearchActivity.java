@@ -18,21 +18,23 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        //get the bundle and getString("Fragment"). It will tell whether to add CharsFragment or ComicsFragment
         Bundle bundle = getIntent().getExtras();
-        String search = bundle.getString("Search");
         String whichFragment = bundle.getString("Fragment");
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+        //add CharsFragment
         if (whichFragment.equals("Chars")) {
             charsFragment = new CharsFragment();
             fragmentTransaction.add(R.id.search, charsFragment);
-            charsFragment.setArguments(bundle);
+            charsFragment.setArguments(bundle); //pass bundle from activity to CharsFragment so that search string can be extracted inside CharsFragment
         } else {
+            //add ComicsFragment
             comicsFragment = new ComicsFragment();
             fragmentTransaction.add(R.id.search, comicsFragment);
-            comicsFragment.setArguments(bundle);
+            comicsFragment.setArguments(bundle); ////pass bundle from activity to ComicsFragment so that search string can be extracted inside ComicsFragment
         }
 
         fragmentTransaction.commit();
