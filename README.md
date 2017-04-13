@@ -21,19 +21,32 @@ https://drive.google.com/open?id=0B2nGf8LzrZuJQ290bHFoUFh3cDQ
 <img src="https://firebasestorage.googleapis.com/v0/b/delhi06-31a81.appspot.com/o/Marvel9.jpg?alt=media&token=6b908b21-e678-454f-a790-eff91c9cc11c" width=280/>&nbsp;&nbsp;
 
 # Features
-
-
+- Get list of all marvel characters and comics
+- search any character or comics by entering the starting letters (ex: sp for spider man, av for avengers, iro for iron man)
+- Get details of any comics and character by clicking on its card.
 
 # ExtraPoints(according to problem given)
-
-
+- A search for characters and comics --> IMPLEMENTED. Click on Fab search to search for characters/comics
+- Animations and transitions --> IMPLEMENTED. Can be seen in SplashActivity, top cover image in MainActivity
+- Telling us your favorite marvel hero. And why? (This is very important) --> IMPLEMENTED. Click on Heart image in app(inside MainActivity) to know more
 
 # Components Used
-
-
+- GridLayout
+- RecyclerView
+- RecyclerView.Adapter<> & ViewHolder
+- ViewPager
+- TabLayout
+- Fragments
+- FragmentPagerAdapter
+- MaterialDesign(CoordinatorLayout, AppBarLayout, CollapsingToolbarLayout, CardViews)
+- Animations
+- Some famous 3rd party libraries(see below)
 
 # Libraries
-
+- Retrofit with GSON (for making API calls and de-serialisation of JSON response to POJO class)
+- ButterKnife (to avoid findViewById() calls)
+- DesignLibrary (for material design)
+- Glide (for loading images from a given url)
 
 My Repos
 ---------
