@@ -1,34 +1,34 @@
 
-package com.shikhar.marvelpedia.Activity.Model;
+package com.shikhar.marvelpedia.Activity.ModelComics;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Url {
+public class Date {
 
     @SerializedName("type")
     @Expose
     private String type;
-    @SerializedName("url")
+    @SerializedName("date")
     @Expose
-    private String url;
+    private String date;
 
     /**
      * No args constructor for use in serialization
      * 
      */
-    public Url() {
+    public Date() {
     }
 
     /**
      * 
+     * @param date
      * @param type
-     * @param url
      */
-    public Url(String type, String url) {
+    public Date(String type, String date) {
         super();
         this.type = type;
-        this.url = url;
+        this.date = date;
     }
 
     public String getType() {
@@ -39,12 +39,12 @@ public class Url {
         this.type = type;
     }
 
-    public String getUrl() {
-        return url;
+    public String getDate() {
+        return date;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setDate(String date) {
+        this.date = date;
     }
 
 }

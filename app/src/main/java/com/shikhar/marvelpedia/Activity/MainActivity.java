@@ -2,15 +2,20 @@ package com.shikhar.marvelpedia.Activity;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.shikhar.marvelpedia.Activity.Adapter.SimpleFragmentPagerAdapter;
 import com.shikhar.marvelpedia.R;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 //TODO
@@ -21,11 +26,17 @@ import butterknife.ButterKnife;
 
 // picasso - error,placeholder(nodataornet,marvel_logo)
 
-//see glide notepad
+//check conection logic..manifest add connectivity manager
 
-//see retorofit me 100 limit dalne se data aa raha hai na??othewise 90,80 ....
+//search activity separate with dialog box and appbar
+
+//final review code..see small paper
+
 
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.favourite_hero)
+    ImageView favouriteHero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,5 +83,30 @@ public class MainActivity extends AppCompatActivity {
                 //do nothing
             }
         });
+
+        //when heart icon is clicked(to show information about my favourite character)
+        favouriteHero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showFavouriteHeroDialog();
+            }
+        });
+    }
+
+    //when heart icon is clicked(to show information about my favourite character)
+    void showFavouriteHeroDialog() {
+
+        ImageView image = new ImageView(this);
+        image.setImageResource(R.drawable.spiderman);
+        image.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("SPIDER MAN");
+        alertDialog.setIcon(R.drawable.favourite);
+        alertDialog.setMessage(getResources().getString(R.string.spider_man_description));
+        alertDialog.setView(image);
+        alertDialog.create().show();
     }
 }

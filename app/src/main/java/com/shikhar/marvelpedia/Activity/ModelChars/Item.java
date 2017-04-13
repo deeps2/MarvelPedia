@@ -1,10 +1,10 @@
 
-package com.shikhar.marvelpedia.Activity.Model;
+package com.shikhar.marvelpedia.Activity.ModelChars;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Item_ {
+public class Item {
 
     @SerializedName("resourceURI")
     @Expose
@@ -17,7 +17,7 @@ public class Item_ {
      * No args constructor for use in serialization
      * 
      */
-    public Item_() {
+    public Item() {
     }
 
     /**
@@ -25,7 +25,7 @@ public class Item_ {
      * @param resourceURI
      * @param name
      */
-    public Item_(String resourceURI, String name) {
+    public Item(String resourceURI, String name) {
         super();
         this.resourceURI = resourceURI;
         this.name = name;

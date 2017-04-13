@@ -1,5 +1,5 @@
 
-package com.shikhar.marvelpedia.Activity.Model;
+package com.shikhar.marvelpedia.Activity.ModelChars;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

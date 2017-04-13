@@ -1,11 +1,11 @@
 
-package com.shikhar.marvelpedia.Activity.Model;
+package com.shikhar.marvelpedia.Activity.ModelComics;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Comics {
+public class Characters {
 
     @SerializedName("available")
     @Expose
@@ -15,7 +15,7 @@ public class Comics {
     private String collectionURI;
     @SerializedName("items")
     @Expose
-    private List<Item> items = null;
+    private List<Object> items = null;
     @SerializedName("returned")
     @Expose
     private Integer returned;
@@ -24,7 +24,7 @@ public class Comics {
      * No args constructor for use in serialization
      * 
      */
-    public Comics() {
+    public Characters() {
     }
 
     /**
@@ -34,7 +34,7 @@ public class Comics {
      * @param available
      * @param returned
      */
-    public Comics(Integer available, String collectionURI, List<Item> items, Integer returned) {
+    public Characters(Integer available, String collectionURI, List<Object> items, Integer returned) {
         super();
         this.available = available;
         this.collectionURI = collectionURI;
@@ -58,11 +58,11 @@ public class Comics {
         this.collectionURI = collectionURI;
     }
 
-    public List<Item> getItems() {
+    public List<Object> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public void setItems(List<Object> items) {
         this.items = items;
     }
 

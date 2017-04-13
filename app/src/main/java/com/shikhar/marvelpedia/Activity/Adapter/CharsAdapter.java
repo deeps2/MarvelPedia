@@ -7,9 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.shikhar.marvelpedia.Activity.Model.Result;
+import com.shikhar.marvelpedia.Activity.ModelChars.Result;
 import com.shikhar.marvelpedia.R;
 import java.util.List;
 
@@ -41,6 +42,7 @@ public class CharsAdapter extends RecyclerView.Adapter<CharsAdapter.ViewHolder> 
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
+            Toast.makeText(context,"Chars: " + position,Toast.LENGTH_SHORT).show();
 
         }
     }
