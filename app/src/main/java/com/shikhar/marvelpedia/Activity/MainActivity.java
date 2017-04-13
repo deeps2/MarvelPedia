@@ -18,21 +18,6 @@ import com.shikhar.marvelpedia.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-//TODO
-// no net(nodataornet vala hee)
-// no data found(when wrong text entered for search na)(nodataornet vala hee JUST CHANGE THE TEXT BELOW IT)
-// network_error(toast)
-
-
-// picasso - error,placeholder(nodataornet,marvel_logo)
-
-//check conection logic..manifest add connectivity manager
-
-//search activity separate with dialog box and appbar
-
-//final review code..see small paper
-
-
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.favourite_hero)
@@ -44,19 +29,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        //attach adapter to viewpager
+        //attach adapter to ViewPager
         final ViewPager viewPager = (ViewPager) findViewById(R.id.tab_viewpager);
         SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(this, getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 
-        //attach viewpager to tablayout
+        //attach viewpager to TabLayout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
 
-        //when a tab is clicked or selected via scrolling horizontally
+        //when a Tab is clicked or selected via scrolling horizontally
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+
                 //adding animation to images corresponding to whatever category is selected
                 Animation mAnim = AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.fade_in);
                 mAnim.setInterpolator(new DecelerateInterpolator());

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/empty_result"
@@ -11,8 +11,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="32dp"
         android:text="0 Results found. Press Back"
-        android:visibility="invisible"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        android:visibility="invisible" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -25,8 +25,8 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:tint="#ffffff"
-        android:src="@drawable/ic_fab"/>
+        android:src="@drawable/ic_fab"
+        android:tint="#ffffff" />
 
 </FrameLayout>

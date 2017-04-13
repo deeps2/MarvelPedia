@@ -17,8 +17,8 @@
             android:id="@+id/poster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
             android:contentDescription="@null"
+            android:scaleType="centerCrop"
             android:src="@drawable/marvellogo" />
 
     </android.support.v7.widget.CardView>
@@ -28,8 +28,8 @@
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
-        android:text="Name Not Found"
         android:gravity="center"
+        android:text="Name Not Found"
         android:textColor="#000000"
         android:textSize="16sp"
         android:textStyle="bold" />

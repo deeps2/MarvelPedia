@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import com.shikhar.marvelpedia.Activity.ModelComics.Item;
 import com.shikhar.marvelpedia.Activity.ModelComics.Result;
 import com.shikhar.marvelpedia.R;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -19,16 +20,22 @@ public class ComicsDetailsActivity extends AppCompatActivity {
 
     @BindView(R.id.comic_cover)
     ImageView cover;
+
     @BindView(R.id.comic_title)
     TextView title;
+
     @BindView(R.id.comic_page)
     TextView pages;
+
     @BindView(R.id.comic_saledate)
     TextView saleDate;
+
     @BindView(R.id.comic_printprice)
     TextView printPrice;
+
     @BindView(R.id.comic_ebook_price)
     TextView eBookPrice;
+
     @BindView(R.id.comic_creators)
     TextView Creators;
 
@@ -38,6 +45,7 @@ public class ComicsDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_comics_details);
         ButterKnife.bind(this);
 
+        //get the object which has all the details of a particular comic
         Result clickedComic = (Result) getIntent().getSerializableExtra("CLICKED_COMIC");
 
         //set image
@@ -67,7 +75,7 @@ public class ComicsDetailsActivity extends AppCompatActivity {
                 saleDate.setText(date);
             }
         } catch (NullPointerException n) {
-            Log.e("NullException",n.toString());
+            Log.e("NullException", n.toString());
         }
 
         //set Print Price
@@ -75,7 +83,7 @@ public class ComicsDetailsActivity extends AppCompatActivity {
             if (clickedComic.getPrices().get(0).getPrice() != null)
                 printPrice.setText(clickedComic.getPrices().get(0).getPrice().toString());
         } catch (NullPointerException n) {
-            Log.e("NullException",n.toString());
+            Log.e("NullException", n.toString());
         }
 
 
@@ -86,7 +94,7 @@ public class ComicsDetailsActivity extends AppCompatActivity {
         } catch (NullPointerException n) {
             Log.e("NullExc", n.toString());
         } catch (IndexOutOfBoundsException i) {
-            Log.e("IndexExc",i.toString());
+            Log.e("IndexExc", i.toString());
         }
 
         //get creators list
@@ -102,8 +110,9 @@ public class ComicsDetailsActivity extends AppCompatActivity {
                     creatorsNames = creatorsNames + name + ", ";
                 }
 
-                if(!creatorsNames.equals("")) {
-                    String listOfCreatorsNames = creatorsNames.substring(0, creatorsNames.length() - 2);
+                //creatorsNames will have [name1,name2,name3....] like that names of all the creators
+                if (!creatorsNames.equals("")) {
+                    String listOfCreatorsNames = creatorsNames.substring(0, creatorsNames.length() - 2); //remove ", " from the last
                     Creators.setText(listOfCreatorsNames);
                 }
             }
@@ -111,7 +120,7 @@ public class ComicsDetailsActivity extends AppCompatActivity {
         } catch (NullPointerException n) {
             Log.e("NullError", n.toString());
         } catch (IndexOutOfBoundsException i) {
-            Log.e("IndexError",i.toString());
+            Log.e("IndexError", i.toString());
         }
     }
 }

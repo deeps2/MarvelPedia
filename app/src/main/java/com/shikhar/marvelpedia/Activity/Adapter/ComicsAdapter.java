@@ -2,14 +2,12 @@ package com.shikhar.marvelpedia.Activity.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.shikhar.marvelpedia.Activity.ComicsDetailsActivity;
@@ -20,6 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+//Adapter for returning list of Characters
 public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder> {
 
     List<Result> listOfComics;
@@ -44,6 +43,7 @@ public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder
         //when a card gets clicked in the recycler view
         @Override
         public void onClick(View v) {
+            //retrieve the character information which was clicked in Result set, and pass it to ComicsDetailsActivity
             int position = getAdapterPosition();
 
             Result comicDetails = listOfComics.get(position);
@@ -83,6 +83,7 @@ public class ComicsAdapter extends RecyclerView.Adapter<ComicsAdapter.ViewHolder
         return listOfComics.size();
     }
 
+    //update the adapter source of data when response is returned by the API.
     public void setDataAdapter(List<Result> listOfComics){
         this.listOfComics = listOfComics;
     }

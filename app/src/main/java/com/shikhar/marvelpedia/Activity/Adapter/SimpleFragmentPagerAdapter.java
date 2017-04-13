@@ -9,6 +9,7 @@ import com.shikhar.marvelpedia.Activity.Fragment.CharsFragment;
 import com.shikhar.marvelpedia.Activity.Fragment.ComicsFragment;
 import com.shikhar.marvelpedia.R;
 
+//this class will return fragment to their respective Tabs
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     private Context mContext;

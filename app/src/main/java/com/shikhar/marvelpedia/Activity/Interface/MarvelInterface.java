@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface MarvelInterface {
-     //TODO change limit to 100
+
     //base url -> "https://gateway.marvel.com:443/v1/public/"
 
     //get all characters, order by name, max limit is 100
@@ -29,7 +29,7 @@ public interface MarvelInterface {
     Call<ComicsResponse> getAllComics(@Query("ts") String timeStamp, @Query("apikey") String API_KEY, @Query("hash") String hash);
 
 
-    //search comics, formatType =  Comic, noVariants = Trues, order by Title(Comic's Name), max Limit = 100 and titleStartsWith = <title>
+    //search comics, formatType =  Comic, noVariants = Trues, order by Title(Comics Name), max Limit = 100 and titleStartsWith = <title>
     // https://gateway.marvel.com:443/v1/public/comics?orderBy=name&limit=100&ts=<timeStamp>&apikey=<key>&hash=<hash>
     @GET("comics?formatType=comic&noVariants=true&orderBy=title&limit=10")
     Call<ComicsResponse> searchComics(@Query("titleStartsWith") String title, @Query("ts") String timeStamp, @Query("apikey") String API_KEY, @Query("hash") String hash);

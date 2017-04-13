@@ -13,7 +13,8 @@ import butterknife.ButterKnife;
 
 public class CharsDetailsActivity extends AppCompatActivity {
 
-    @BindView(R.id.char_cover) ImageView charPhoto;
+    @BindView(R.id.char_cover)
+    ImageView charPhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class CharsDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chars_details);
         ButterKnife.bind(this);
 
+        //get the object which has all the details of a particular character
         Result clickedCharacter = (Result) getIntent().getSerializableExtra("CLICKED_CHAR");
 
         //set image
@@ -34,6 +36,6 @@ public class CharsDetailsActivity extends AppCompatActivity {
         //setTile = CharacterName
         setTitle(clickedCharacter.getName());
 
-        //Sorry...didn't get enough time to implement this fully. see the reason by running the app and opening this activity//
+        //Sorry...didn't get enough time to implement this fully. see the reason by running the app and opening this activity
     }
 }

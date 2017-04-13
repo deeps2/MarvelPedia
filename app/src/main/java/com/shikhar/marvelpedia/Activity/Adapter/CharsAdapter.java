@@ -8,11 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.shikhar.marvelpedia.Activity.CharsDetailsActivity;
-import com.shikhar.marvelpedia.Activity.ComicsDetailsActivity;
 import com.shikhar.marvelpedia.Activity.ModelChars.Result;
 import com.shikhar.marvelpedia.R;
 import java.util.List;
@@ -20,6 +18,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+//Adapter for returning list of Characters
 public class CharsAdapter extends RecyclerView.Adapter<CharsAdapter.ViewHolder> {
 
     List<Result> listOfCharacters;
@@ -44,7 +43,7 @@ public class CharsAdapter extends RecyclerView.Adapter<CharsAdapter.ViewHolder> 
         //when a card gets clicked in the recycler view
         @Override
         public void onClick(View v) {
-
+            //retrieve the character information which was clicked in Result set, and pass it to CharsDetailsActivity
             int position = getAdapterPosition();
 
             Result charsDetails = listOfCharacters.get(position);
@@ -84,6 +83,7 @@ public class CharsAdapter extends RecyclerView.Adapter<CharsAdapter.ViewHolder> 
         return listOfCharacters.size();
     }
 
+    //update the adapter source of data when response is returned by the API.
     public void setDataAdapter(List<Result> listOfChars){
         this.listOfCharacters = listOfChars;
     }

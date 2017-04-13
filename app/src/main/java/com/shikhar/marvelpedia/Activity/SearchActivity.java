@@ -25,8 +25,8 @@ public class SearchActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        //add CharsFragment
         if (whichFragment.equals("Chars")) {
+            //add CharsFragment
             charsFragment = new CharsFragment();
             fragmentTransaction.add(R.id.search, charsFragment);
             charsFragment.setArguments(bundle); //pass bundle from activity to CharsFragment so that search string can be extracted inside CharsFragment
@@ -34,7 +34,7 @@ public class SearchActivity extends AppCompatActivity {
             //add ComicsFragment
             comicsFragment = new ComicsFragment();
             fragmentTransaction.add(R.id.search, comicsFragment);
-            comicsFragment.setArguments(bundle); ////pass bundle from activity to ComicsFragment so that search string can be extracted inside ComicsFragment
+            comicsFragment.setArguments(bundle); //pass bundle from activity to ComicsFragment so that search string can be extracted inside ComicsFragment
         }
 
         fragmentTransaction.commit();
