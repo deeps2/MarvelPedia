@@ -7,10 +7,12 @@
     android:orientation="vertical"
     tools:context="com.shikhar.marvelpedia.Activity.SplashActivity">
 
-    <TextView
-        android:id="@+id/key"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hello"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:scaleType="center"
+        android:background="#fb000f"
+        android:src="@drawable/marvellogo"/>
 
 </LinearLayout>
