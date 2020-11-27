@@ -22,7 +22,7 @@ https://drive.google.com/open?id=0B2nGf8LzrZuJQ290bHFoUFh3cDQ
 <img src="https://firebasestorage.googleapis.com/v0/b/delhi06-31a81.appspot.com/o/Marvel2.jpg?alt=media&token=ec51ca1e-9b56-4f4f-ac40-4ede3e837768" width=280/>&nbsp;&nbsp;
 <img src="https://firebasestorage.googleapis.com/v0/b/delhi06-31a81.appspot.com/o/Marvel4.jpg?alt=media&token=84d524be-5eda-430c-a093-49a8694c7306" width=280/>&nbsp;&nbsp; 
 <img src="https://firebasestorage.googleapis.com/v0/b/delhi06-31a81.appspot.com/o/Marvel5.jpg?alt=media&token=04bbe94b-a358-4b27-b456-a32b9db4b94e" width=280/>&nbsp;&nbsp;
-<img src="https://firebasestorage.googleapis.com/v0/b/delhi06-31a81.appspot.com/o/Marvel6.jpg?alt=media&token=9bbc4d7c-6bac-4b48-bb71-a04095b8ab1d" width=280/></br></br></br></br>
+<img src="https://firebasestorage.googleapis.com/v0/b/delhi06-31a81.appspot.com/o/Marvel6.jpg?alt=media&token=9bbc4d7c-6bac-4b48-bb71-a04095b8ab1d" width=280/>&nbsp;&nbsp;
 <img src="https://firebasestorage.googleapis.com/v0/b/delhi06-31a81.appspot.com/o/marvel7.jpg?alt=media&token=80194ddd-5ef1-4f1b-9074-684e132e013d" width=280/>&nbsp;&nbsp; 
 <img src="https://firebasestorage.googleapis.com/v0/b/delhi06-31a81.appspot.com/o/Marvel8.jpg?alt=media&token=b1a20d1c-1210-4b30-a06c-5a07bed49e08" width=280/>&nbsp;&nbsp;
 <img src="https://firebasestorage.googleapis.com/v0/b/delhi06-31a81.appspot.com/o/Marvel9.jpg?alt=media&token=6b908b21-e678-454f-a790-eff91c9cc11c" width=280/>&nbsp;&nbsp;
